@@ -2,7 +2,7 @@
 
 ## Documentation
 
-The documentation for the ELIXIR Beacon v2 Network is [https://beacon-network-v2-documentation.readthedocs.io/en/latest/](here)
+The documentation for the ELIXIR Beacon v2 Network is [here](https://beacon-network-v2-documentation.readthedocs.io/en/latest/)
 
 ## Deploying
 
