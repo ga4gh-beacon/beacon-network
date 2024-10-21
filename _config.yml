@@ -1,1 +1,9 @@
+# Site settings
+title: ELIXIR Beacon Network Documentation
+author:
+  name: Sergi Aguiló Castillo9
+  email: sergi.aguilo@bsc.es
+description: "ELIXIR Beacon Network current documentation. This pages are a living document of the current documentation of this development"
+
+# Build settings
 theme: jekyll-theme-minimal
