@@ -1,3 +1,8 @@
+---
+layout: default
+title: Welcome to the ELIXIR Beacon v2 Network Documentation
+nav_order: 1
+---
 # ELIXIR Beacon v2 Network Documentation
 
 Welcome to the ELIXIR Beacon v2 Network documentation!

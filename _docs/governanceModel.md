@@ -1,9 +1,8 @@
 ---
 title: Governance Model
 date: 2024-10-22
-categories: [Documentation, Governance Model]
-toc: true
-comments: false
+layout: default
+nav_order: 2
 ---
 
 # Governance Model

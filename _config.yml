@@ -6,4 +6,13 @@ author:
 description: "ELIXIR Beacon Network current documentation. This pages are a living document of the current documentation of this development"
 
 # Build settings
-theme: jekyll-theme-chirpy
+remote_theme: "pmarsceill/just-the-docs"
+# Configure Just the Docs settings
+just_the_docs:
+  search_enabled: true
+  show_last_updated: true
+  collections:
+    nav:
+      - title: "Documentation"
+        url: "/docs/governanceModel"
+        children
