@@ -6,4 +6,4 @@ author:
 description: "ELIXIR Beacon Network current documentation. This pages are a living document of the current documentation of this development"
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: jekyll-theme-chirpy
