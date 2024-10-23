@@ -1,5 +1,5 @@
 # Site settings
-title: ELIXIR Beacon Network Documentation
+title: ELIXIR Beacon Network Docs
 author:
   name: Sergi Aguiló Castillo9
   email: sergi.aguilo@bsc.es
@@ -7,12 +7,36 @@ description: "ELIXIR Beacon Network current documentation. This pages are a livi
 
 # Build settings
 remote_theme: "pmarsceill/just-the-docs"
+
+plugins:
+  - jekyll-remote-theme # Add this to enable remote themes
+
 # Configure Just the Docs settings
 just_the_docs:
   search_enabled: true
   show_last_updated: true
   collections:
     nav:
+      - title: "Installation"
+        url: "/docs/adminGuide/installation"
+        children:
+          - title: "Light an ELIXIR Beacon Network"
+            url: "/docs/adminGuide/light-beacon-network"
+          - title: "Add a Beacon"
+            url: "/docs/adminGuide/add-beacon"
+          - title: "Aggregator"
+            url: "/docs/adminGuide/beacon-aggregator"
+          - title: "Registry"
+            url: "/docs/adminGuide/beacon-registry"
+          - title: "Best Practices"
+            url: "/docs/adminGuide/best-practices"
       - title: "Documentation"
-        url: "/docs/governanceModel"
-        children
+        url: "/docs/mainDocumentation/documentation"
+        children:
+          - title: "Governance Model"
+            url: "/docs/mainDocumentation/governanceModel"
+            children:
+              - title: "Expected Operations"
+                url: "/docs/mainDocumentation/expectedOperations"            
+          - title: "Disaster Recovery Plan"
+            url: "/docs/mainDocumentation/disasterRecovery"
