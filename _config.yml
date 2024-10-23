@@ -10,6 +10,8 @@ remote_theme: "pmarsceill/just-the-docs"
 
 plugins:
   - jekyll-remote-theme # Add this to enable remote themes
+  
+baseurl: "/beacon-network"
 
 # Configure Just the Docs settings
 just_the_docs:

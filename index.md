@@ -18,11 +18,11 @@ The documentation is divided in two parts:
 
 ### Collaborators:
 
-<img src="/docs/adminGuide/images/biysc_bsc_logo.jpg.png" height="100" width="150">
-<img src="/docs/adminGuide/images/biysc_crg_logo.jpg.png" height="50" width="100">
-<img src="/docs/adminGuide/images/csc.png" height="50" width="100">
-<img src="/docs/adminGuide/images/PN013300-logo.inb_.rgb_.hor_.en_.cutted_0_488.png" height="50" width="100">
-<img src="/docs/adminGuide/images/SIB_logo.jpg" height="50" width="100">
-<img src="/docs/adminGuide/images/University_of_Zurich_seal.svg.png" height="50" width="50">
-<img src="/docs/adminGuide/images/ELIXIR_logo_white_background.png" height="50" width="100">
-<img src="/docs/adminGuide/images/europe.png" height="50" width="100">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/biysc_bsc_logo.jpg.png" height="100" width="150">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/biysc_crg_logo.jpg.png" height="50" width="100">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/csc.png" height="50" width="100">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/PN013300-logo.inb_.rgb_.hor_.en_.cutted_0_488.png" height="50" width="100">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/SIB_logo.jpg" height="50" width="100">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/University_of_Zurich_seal.svg.png" height="50" width="50">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/ELIXIR_logo_white_background.png" height="50" width="100">
+<img src="{{ site.baseurl }}/docs/adminGuide/images/europe.png" height="50" width="100">
