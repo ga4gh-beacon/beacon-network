@@ -9,7 +9,7 @@ Welcome to the ELIXIR Beacon v2 Network documentation!
 
 After the approval of Beacon v2 as an official GA4GH standard and the success of the ELIXIR Beacon v1 Network, there was a need of create a new implementation of the ELIXIR Beacon Network adding the functionalities of the new version.
 
-With this new version, the Beacon Network is able to query genomic and pheno-clinical data of the patients across the many instances of the network.
+With this new version, the ELIXIR Beacon Network is able to query genomic and pheno-clinical data of the patients across the many instances of the network.
 
 The documentation is divided in two parts:
 

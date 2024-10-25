@@ -22,7 +22,7 @@ The Beacon Aggregator (BA) is the agent in charge of querying the Beacons of the
 
 ## Meta-Beacon
 
-The Beacon Aggregator is itself a standard Beacon v2. As it is created to query other Beacons, it is referred to as Meta-Beacon.
+The Beacon Aggregator is itself a standard Beacon v2. As it is created to query other Beacons, it is also referred to as Meta-Beacon.
 
 In order to differentiate the Meta-Beacon to a simple Beacon, besides having aggregation functionalities, we have listed the following additional properties:
 

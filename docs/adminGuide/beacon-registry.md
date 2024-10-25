@@ -32,6 +32,8 @@ The cache of the registry store the following information about the Beacons:
 
 - Authentication/Authorization mechanism needed to ensure that only authorized users access the data.
 
+- Basic metadata from the `info` endpoint.
+
 As it can be seen, the data stored in the cache is directly related with the queries policy. So, it needs to be updated every time there is a change in any Beacon.
 
 ## Update Registry

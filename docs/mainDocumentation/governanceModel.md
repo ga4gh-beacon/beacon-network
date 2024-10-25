@@ -36,7 +36,6 @@ The main objectives of the ELIXIR Beacon Network are:
 
 - Knowledge exchange: Bringing different data providers together serves to identify commonalities and differences across sites, facilitating expert knowledge exchange and the promotion and adoption of standardised protocols across the community.
 
-
 ## Structure
 
 The governance structure is designed to facilitate transparent decision-making, both strategic and operational, and community involvement. The key parts are:
@@ -47,28 +46,23 @@ The governance structure is designed to facilitate transparent decision-making, 
 
 - Appendixes that describe details on particular aspects.
 
-The considerations for expected operations, such as relevant and contextual considerations for the governance in the different operations inside the EBN and what makes a Beacon operational in the network are in the [ELIXIR Beacon Network Operations document](https://docs.google.com/document/d/1GfCztXyPIN3m0dY-1RGZQac0EUqzFCACnAdnq4XrgDQ/edit).
-
+The considerations for expected operations, such as relevant and contextual considerations for the governance in the different operations inside the EBN and what makes a Beacon operational in the network are in the [Expected Operations document]({{ site.baseurl }}/docs/mainDocumentation/expectedOperations).
 
 # 3. Roles, Bodies and Responsibilities
 
 This section lists roles, bodies and responsibilities in the ELIXIR Beacon Network:
 
-
 ## Users
 
 User is anyone querying EBN. As an example, a user can be a researcher searching for individuals with a certain disease across multiple beacons. Users could be anonymous or registered.
-
 
 ### Anonymous Users
 
 Anonymous users refer to individuals who are not registered or do not pass any authentication in the ELIXIR Beacon Network. Such users are limited to accessing only the public beacons, with access restricted to the default level of granularity of each beacon.
 
-
 ### Registered Users
 
 Registered users are those who have logged into EBN. Whenever these users initiate a query, EBN will transmit their identity to the beacons within the network.
-
 
 ## Beacon Maintainer
 
@@ -77,7 +71,6 @@ Beacon maintainers are the people in charge of the beacons that have been includ
 They are the primary point of contact with the EBN Maintainer, facilitating the addition or update of their beacons within the network. Additionally, they are tasked with notifying the EBN Maintainer of any errors in their beacon that could impact the network's performance.
 
 Before asking permission to enter the ELIXIR Beacon Network, they must pass their beacon to the [validator](https://github.com/elixir-europe/neat-beacon-v2-validator) to ensure their beacon is complying with the specification.
-
 
 ## ELIXIR Beacon Network Maintainer
 
@@ -89,13 +82,11 @@ This role could be split into several individuals or subroles, e.g.: customer su
 
 The EBN Maintainer is selected by the Steering Committee. It must be a person with access to the system where the EBN backend is located.
 
-
 ## Contributors
 
 Contributors are community members who help maintain and develop the ELIXIR Beacon Network. Any person can contribute. Participation is open to anyone, with no expectation of long-term commitment, specific skill requirements, or selection process.
 
 Contributions can take multiple forms such as reporting bugs, writing documentation, contributing code (e.g. new model schemas). Any form of contribution is welcome, and it will be recognized.
-
 
 ## Steering CommitteeBeacon Maintainer at least one member from the contributing communities.
 
@@ -111,20 +102,19 @@ The Steering Committee holds regular mandatory meetings, typically on a quarterl
 
 4. Policy Development and Updates: Discussing and approving new policies or modifications to existing ones.
 
-
 ## Operations Team
 
 Specialists responsible for the technical infrastructure and development of the network. Their primary focus is on developing the network, implementing extensions and ensuring interoperability to enhance its functionality and efficiency.
 
 This committee is composed by contributors of the ELIXIR Beacon Network. It is also encouraged that the members of contributing communities help the development together with the Steering Committee.
 
-Disaster Recovery team
+## Disaster Recovery team
 
+People in charge on recovering the ELIXIR Beacon Network in case of a disruptive event that impact the network functionalities. It must be composed by technical people and the EBN maintainer maintainer.
 
 ## Training and outreach
 
 Anyone related to the EBN can do training or participate in outreach activities. Before doing so, they must send a mail to <bn-contact@elixir-europe.org> to inform them of the activity, and get any possible help from the community or any other valuable assistance.
-
 
 ## SC Chair
 

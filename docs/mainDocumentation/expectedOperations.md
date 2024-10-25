@@ -29,7 +29,6 @@ The ELIXIR Beacon Network (EBN) holds primary responsibility for querying all be
 
 User queries must conform to the schema of the beacons to generate potentially positive results. If a query deviates from the version of the Beacon protocol supported by the aggregator a specific beacon's schema, the beacon will respond negatively. This protocol ensures that users receive accurate and relevant information consistent with the capabilities of each beacon within the network.
 
-
 ## Add Beacons
 
 To include a Beacon in the ELIXIR Beacon Network (EBN), it must first receive acceptance from the ELIXIR Beacon Network Maintainer.
@@ -48,7 +47,6 @@ In addition to meeting the Steering Committee's criteria, the following minimum 
 
 5. Data: While it is not obligatory for a Beacon to contain data upon integration into the network, it is recommended to utilise synthetic data if authentic data is unavailable.
 
-
 ## Remove Beacons
 
 The individual responsible for removing beacons from the network is the EBN Maintainer. The removal process is initiated under the following circumstances:
@@ -61,11 +59,9 @@ The individual responsible for removing beacons from the network is the EBN Main
 
 4. A beacon significantly compromises the network's performance or security.
 
-
 ## Validate a Beacon
 
 Before integration into the ELIXIR Beacon Network (EBN), a beacon must undergo validation. If the validation process concludes without errors, the beacon is deemed suitable for inclusion in the network. However, if errors are detected during validation, and they do not pose significant risks to querying the beacon or to the EBN itself, the decision to integrate the beacon rests with the EBN Maintainer.
-
 
 ## Load-Balance
 
@@ -77,11 +73,9 @@ All institutions implementing the Load-Balance approach within the ELIXIR Beacon
 
 The Load-Balance approach is not mandatory. It is up to the SC to decide if it is suitable to use it or use another approach, such as having the EBN in the cloud.
 
-
 ## Registration/Authorization
 
 Users are required to include the appropriate token with each query, whether utilising the direct API or the FrontEnd interface. This token functions as both authentication and authorization, providing the necessary level of access to query the beacons within the ELIXIR Beacon Network with the desired granularity.
-
 
 ## Product updates and maintenance
 
@@ -89,11 +83,9 @@ Any modification to the ELIXIR Beacon Network requires validation by at least tw
 
 To initiate a new version of the ELIXIR Beacon Network, approval from all SC members is necessary. Subsequently, an email must be circulated to all participating EBNs in the Load-Balance approach to coordinate the timing of their deployment updates. Finally, an email must be sent to all participants via the EBN mailing list.
 
-
 ## Monitoring
 
 It is up to the Steering Committee to decide which statistics and how to monitor the EBN. The EBN maintainer is the one responsible to be in contact with the Operations Team for deploying the monitorisation, and report it to the Steering Committee (it must be done at least once a year). Also, they are responsible to contact the Disaster Recovery Coordinator when an incident has been detected.
-
 
 ## Documentation and training
 
@@ -101,11 +93,9 @@ Documentation and training for the EBN are continuously evolving to meet the nee
 
 Training programs may be conducted by any interested individual. Prior to conducting training, notification and relevant information must be provided to the Steering Committee for assistance and coordination. Additionally, the ELIXIR Training program, accessible via TeSS, can offer valuable resources and support for training initiatives.
 
-
 # What makes a Beacon operational in the ELIXIR Beacon Network
 
 This section outlines the standards and expectations for maintaining an Operational Beacons within the ELIXIR Beacon Network v2. It aims to ensure a consistent and high-quality user experience, facilitate interoperability, and uphold the network's overall reliability and integrity. This **section is aimed at Beacon owners** with a Beacon inside the network.
-
 
 ## Operational Requirements
 
@@ -115,13 +105,11 @@ This section outlines the standards and expectations for maintaining an Operatio
 
 - Data Quality: Beacons must ensure the accuracy, completeness, and timeliness of the genomic data they host.
 
-
 ## Performance Metrics
 
 - Response Time: Beacons must respond to queries within 30 seconds under normal operating conditions.
 
 - Throughput: Beacons must handle a minimum of 100 concurrent queries without performance degradation.
-
 
 ## Service Availability
 
@@ -131,7 +119,6 @@ This section outlines the standards and expectations for maintaining an Operatio
 
 - Unscheduled Downtime: In the event of unscheduled downtime, Beacon operators must notify the ELIXIR Beacon Network Management within 30 minutes of the incident.
 
-
 ## Incident Management
 
 - Incident Reporting: Beacon operators must report any incidents affecting service availability or performance to the ELIXIR Beacon Network Management immediately.
@@ -140,16 +127,14 @@ This section outlines the standards and expectations for maintaining an Operatio
 
 - Escalation: If an incident cannot be resolved within the stipulated time, it must be escalated to the ELIXIR Beacon Network Management for further assistance.
 
-
 ## Support and Maintenance
 
 - Support Availability: Beacon maintainers must provide support for their Beacons during regular business hours.
 
 - Maintenance Practices: Beacon maintainers must perform regular maintenance to ensure optimal performance and compliance with security standards. This includes applying software updates, patching vulnerabilities, and monitoring system health.
 
-
 ## Responsibilities
 
-- Beacon Maintainers: Ensure compliance with all operational requirements and performance metrics outlined in this SLA. Maintain the accuracy and quality of the data hosted by the Beacon. Provide timely support and incident resolution as specified.
+- Beacon Maintainers: Ensure compliance with all operational requirements and performance metrics outlined in this section. Maintain the accuracy and quality of the data hosted by the Beacon. Provide timely support and incident resolution as specified.
 
-- ELIXIR Beacon Network Maintainer: Monitor the performance and availability of Beacons within the network. Provide guidance and support to Beacon operators to help them meet SLA commitments. Coordinate network-wide maintenance and updates to ensure interoperability and performance. Review incident reports and facilitate root cause analysis and resolution.
+- ELIXIR Beacon Network Maintainer: Monitor the performance and availability of Beacons within the network. Provide guidance and support to Beacon operators to help them meet the requirements. Coordinate network-wide maintenance and updates to ensure interoperability and performance. Review incident reports and facilitate root cause analysis and resolution.
