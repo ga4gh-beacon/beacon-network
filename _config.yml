@@ -6,12 +6,24 @@ author:
 description: "ELIXIR Beacon Network current documentation. This pages are a living document of the current documentation of this development"
 
 # Build settings
-remote_theme: "pmarsceill/just-the-docs"
-
+remote_theme: just-the-docs/just-the-docs@v0.10.0
 plugins:
   - jekyll-remote-theme # Add this to enable remote themes
   
 baseurl: "/beacon-network"
+
+markdown: kramdown
+
+callouts:
+  warning:
+    title: Warning
+    color: red
+  note:
+    title: Note
+    color: yellow
+  important:
+    title: Important
+    color: blue
 
 # Configure Just the Docs settings
 just_the_docs:
