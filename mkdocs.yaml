@@ -1,0 +1,112 @@
+# ------------------------ Navigation Menu ----------------------------------- #
+
+nav:
+    - Home: /
+    - Documentation:
+      - Governance: mainDocumentation/governanceModel.md
+      - Operation: mainDocumentation/expectedOperation.md
+      - Disaster Recovery: mainDocumentation/disasterRecovery.md
+    - Installation and Administration:
+      - Beacon Aggregator: adminGuide/beacon-aggregator.md
+      - Light a Network: adminGuide/light-beacon-network.md
+      - Add a Beacon: adminGuide/add-beacon.md
+      - Beacon Registry: adminGuide/beacon-registry.md
+      - Best Practices: adminGuide/best-practices.md
+
+
+# ------------------------- Repository Settings ------------------------------ #
+
+site_name: ELIXIR Beacon Network
+site_description: 'Website for the ELIXIR Beacon v2 Network Project'
+site_author: 'Sergi Aguiló Castillo, Michael Baudis & Beacon Network Developers'
+copyright: '&copy; Copyright 2024, ELIXIR Beacon Developers'
+repo_name: 'beacon-network'
+repo_url: https://github.com/elixir-europe/beacon-network
+edit_uri: edit/main/docs/
+repo_icon: " [:fontawesome-brands-github:](https://github.com/elixir-europe/beacon-network/tree/main/docs)"
+
+# ------------------- Mkdocs Configurattion and Extensions-------------------- #
+
+extra_css: [css/theme_overrides.css]
+
+plugins:
+  - search
+  - macros
+  - mermaid2
+
+markdown_extensions:
+    - toc:
+        toc_depth: 2-3
+        permalink: true
+    - admonition
+    - attr_list
+    - footnotes
+    - md_in_html
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.details
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.saneheaders
+    - pymdownx.superfences
+    - pymdownx.magiclink:
+        hide_protocol: true
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - tables
+    - mdx_gh_links:
+        user: ga4gh-beacon
+        repo: beacon-v2
+    - pymdownx.emoji:
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
+          options:
+            custom_icons:
+              - extras/.icons
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:mermaid2.fence_mermaid   
+
+theme:
+    custom_dir: extras
+    name: material
+    palette:
+        primary: teal
+    logo: img/elixir-white-48x36.svg
+    favicon: img/elixir-white-48x36.svg
+    icon:
+        repo: fontawesome/brands/github-alt
+        admonition:
+          warning: lock
+          security: lock
+    features:
+        - content.tabs.link
+        - search.highlight
+        - search.share
+        - navigation.expand
+        - toc.integrate
+
+# Options
+extra:
+  excerpt_separator: <!--more-->
+  blog_list_length: 100
+  news:
+    dir: news
+  minutes:
+    dir: minutes
+  publications:
+    dir: publications
+  contacts:
+    dir: people
+  social:
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/genomebeacons
+    - icon: fontawesome/brands/github 
+      link: https://github.com/ga4gh-beacon
+
+# https://pypi.org/project/mkdocs-with-pdf/ for more PDF configuration ...
