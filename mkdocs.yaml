@@ -4,7 +4,7 @@ nav:
     - Home: /
     - Documentation:
       - Governance: mainDocumentation/governanceModel.md
-      - Operation: mainDocumentation/expectedOperation.md
+      - Operation: mainDocumentation/expectedOperations.md
       - Disaster Recovery: mainDocumentation/disasterRecovery.md
     - Installation and Administration:
       - Beacon Aggregator: adminGuide/beacon-aggregator.md
