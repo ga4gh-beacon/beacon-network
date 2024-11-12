@@ -2,7 +2,6 @@
 date: 2024-10-22
 ---
 
-
 # Expected operations within the ELIXIR Beacon Network
 
 The expected operations of the EBN revolve around ensuring smooth functioning, growth and ethical management of the service.
