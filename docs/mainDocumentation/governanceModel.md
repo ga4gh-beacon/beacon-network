@@ -114,7 +114,7 @@ The official communication channels for user support and project discussions in 
 
 - The Gitter messaging system channel for the ecosystem.
 
-- Via issues in any of the [Beacon Network repositories](https://github.com/elixir-europe/beacon-network).
+- Via issues in any of the [Beacon Network repositories](https://github.com/ga4gh-beacon/beacon-network).
 
 
 # 6. Support

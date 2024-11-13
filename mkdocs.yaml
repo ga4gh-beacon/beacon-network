@@ -21,9 +21,9 @@ site_description: 'Website for the ELIXIR Beacon v2 Network Project'
 site_author: 'Sergi Aguiló Castillo, Michael Baudis & Beacon Network Developers'
 copyright: '&copy; Copyright 2024, ELIXIR Beacon Developers'
 repo_name: 'beacon-network'
-repo_url: https://github.com/elixir-europe/beacon-network
+repo_url: https://github.com/ga4gh-beacon/beacon-network
 edit_uri: edit/main/docs/
-repo_icon: " [:fontawesome-brands-github:](https://github.com/elixir-europe/beacon-network/tree/main/docs)"
+repo_icon: " [:fontawesome-brands-github:](https://github.com/ga4gh-beacon/beacon-network/tree/main/docs)"
 
 # ------------------- Mkdocs Configurattion and Extensions-------------------- #
 
