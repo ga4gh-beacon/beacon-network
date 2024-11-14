@@ -25,7 +25,7 @@ repo_url: https://github.com/ga4gh-beacon/beacon-network
 edit_uri: edit/main/docs/
 repo_icon: " [:fontawesome-brands-github:](https://github.com/ga4gh-beacon/beacon-network/tree/main/docs)"
 
-# ------------------- Mkdocs Configurattion and Extensions-------------------- #
+# ------------------- Mkdocs Configuration and Extensions -------------------- #
 
 extra_css: [css/theme_overrides.css]
 
@@ -73,23 +73,23 @@ markdown_extensions:
               format: !!python/name:mermaid2.fence_mermaid   
 
 theme:
-    custom_dir: extras
-    name: material
-    palette:
-        primary: teal
-    logo: img/elixir-white-48x36.svg
-    favicon: img/elixir-white-48x36.svg
-    icon:
-        repo: fontawesome/brands/github-alt
-        admonition:
-          warning: lock
-          security: lock
-    features:
-        - content.tabs.link
-        - search.highlight
-        - search.share
-        - navigation.expand
-        - toc.integrate
+  custom_dir: extras
+  name: material
+  palette:
+    primary: indigo
+  logo: img/elixir-white-48x36.svg
+  favicon: img/elixir-white-48x36.svg
+  icon:
+    repo: fontawesome/brands/github-alt
+    admonition:
+      warning: lock
+      security: lock
+  features:
+      - content.tabs.link
+      - search.highlight
+      - search.share
+      - navigation.expand
+      - toc.integrate
 
 # Options
 extra:
