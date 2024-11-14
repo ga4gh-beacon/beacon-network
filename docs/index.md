@@ -18,11 +18,10 @@ Here Deployment and main functionalities of the ELIXIR Beacon Network are explai
 
 ### Collaborators:
 
-![](img/biysc_bsc_logo.jpg.png){: style="width: 150px" }
-![](img/biysc_crg_logo.jpg.png){: style="width: 100px" }
-![](img/csc.png){: style="width: 100px" }
-![](img/PN013300-logo.inb_.rgb_.hor_.en_.cutted_0_488.png){: style="width: 100px" }
-![](img/SIB_logo.jpg){: style="width: 100px" }
-![](img/University_of_Zurich_seal.svg.png){: style="width: 50px" }
-![](img/ELIXIR_logo_white_background.png){: style="width: 100px" }
-![](img/europe.png){: style="width: 100px" }
+<img src="img/biysc_bsc_logo.jpg.png" height="50px"/><img src="img/biysc_crg_logo.jpg.png" height="60px"/>
+<img src="img/csc.png" height="60px"/>
+<img src="img/PN013300-logo.inb_.rgb_.hor_.en_.cutted_0_488.png" height="60px"/>
+<img src="img/SIB_logo.jpg" height="60px"/>
+<img src="img/University_of_Zurich_seal.svg.png" height="60px"/>
+<img src="img/ELIXIR_logo_white_background.png" height="60px"/>
+<img src="img/europe.png" height="60px"/>
