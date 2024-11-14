@@ -1,0 +1,1036 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website for the ELIXIR Beacon v2 Network Project">
+      
+      
+        <meta name="author" content="Sergi Aguiló Castillo, Michael Baudis & Beacon Network Developers">
+      
+      
+      
+        <link rel="prev" href="../expectedOperations/">
+      
+      
+        <link rel="next" href="../../adminGuide/beacon-aggregator/">
+      
+      
+      <link rel="icon" href="../../img/elixir-white-48x36.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Disaster Recovery - ELIXIR Beacon Network</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>');--md-admonition-icon--security:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/theme_overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#recovery-time-objectives-rto" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ELIXIR Beacon Network" class="md-header__button md-logo" aria-label="ELIXIR Beacon Network" data-md-component="logo">
+      
+  <img src="../../img/elixir-white-48x36.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ELIXIR Beacon Network
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Disaster Recovery
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ga4gh-beacon/beacon-network" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    beacon-network
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ELIXIR Beacon Network" class="md-nav__button md-logo" aria-label="ELIXIR Beacon Network" data-md-component="logo">
+      
+  <img src="../../img/elixir-white-48x36.svg" alt="logo">
+
+    </a>
+    ELIXIR Beacon Network
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ga4gh-beacon/beacon-network" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    beacon-network
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governanceModel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expectedOperations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Disaster Recovery
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Disaster Recovery
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recovery-time-objectives-rto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery Time Objectives (RTO)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovery-point-objectives-rpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery Point Objectives (RPO)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Recovery
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Restoration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-rebuilding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure Rebuilding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incident-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incident Detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incident-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incident Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incident-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incident Mitigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-communication-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Communication Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-communication-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Communication Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Protocols
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation and Administration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Installation and Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/beacon-aggregator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beacon Aggregator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/light-beacon-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Light a Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/add-beacon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Beacon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/beacon-registry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beacon Registry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="what-is-a-disaster-recovery-plan">What is a disaster recovery plan?<a class="headerlink" href="#what-is-a-disaster-recovery-plan" title="Permanent link">&para;</a></h1>
+<p>The purpose of this Disaster Recovery Plan (DRP) for the ELIXIR Beacon Network v2 is to provide a comprehensive, structured approach to prepare for, respond to, and recover from disruptive events that may impact the network's operations. This plan aims to ensure the continuity of critical functions, minimize downtime, and protect data integrity, thereby maintaining the trust and reliability essential to users and maintainers of the ELIXIR Beacon Network v2.</p>
+<p>This DRP covers all aspects of disaster recovery for the ELIXIR Beacon Network v2, including hardware, software, data, and communication infrastructures. It applies to all potential disruptions including: cyber attacks, hardware failures, and other emergencies. The plan encompasses:</p>
+<ol>
+<li>
+<p>All critical systems and services associated with the ELIXIR Beacon Network v2.</p>
+</li>
+<li>
+<p>Data backup and restoration processes.</p>
+</li>
+<li>
+<p>Communication protocols for internal and external stakeholders during a disaster.</p>
+</li>
+<li>
+<p>Roles and responsibilities of the disaster recovery team.</p>
+</li>
+<li>
+<p>Procedures for testing, maintaining, and updating the DRP.</p>
+</li>
+</ol>
+<p>By achieving these objectives, the ELIXIR Beacon Network v2 will be better prepared to handle unexpected disruptions, ensuring that critical services remain available and secure for its users.</p>
+<h1 id="risk-assessment">Risk Assessment<a class="headerlink" href="#risk-assessment" title="Permanent link">&para;</a></h1>
+<p>These are the identified risks that can damage the ELIXIR Beacon Network (EBN). In the following list there are the possible risks prioritised based on their impact and likelihood:</p>
+<ol>
+<li>
+<p>Cyber attacks: Potential data breaches, loss of sensitive information, and extended downtime.</p>
+</li>
+<li>
+<p>Software failures: May lead to application crashes, data corruption, and service disruptions. It can be caused by bugs when new deployments are in production.</p>
+</li>
+<li>
+<p>Hardware failures: May cause partial or complete loss of services, data loss, and system unavailability.</p>
+</li>
+<li>
+<p>Human errors: Could result in accidental deletion or modification of critical data, system misconfigurations.</p>
+</li>
+<li>
+<p>Power outages: Temporary loss of access to the network.</p>
+</li>
+</ol>
+<h1 id="recovery-objectives">Recovery Objectives<a class="headerlink" href="#recovery-objectives" title="Permanent link">&para;</a></h1>
+<p>The Recovery Objectives are crucial for guiding the disaster recovery efforts for the ELIXIR Beacon Network v2. These objectives define the acceptable downtime and data loss for different components of the network, ensuring that critical services are restored promptly and data integrity is maintained.</p>
+<h2 id="recovery-time-objectives-rto">Recovery Time Objectives (RTO)<a class="headerlink" href="#recovery-time-objectives-rto" title="Permanent link">&para;</a></h2>
+<p>Recovery Time Objectives (RTO) specify the maximum acceptable duration that a system, application, or function can be offline after a disaster before causing significant harm to the organization.</p>
+<ol>
+<li>
+<p>Critical Services: These are the services that must be restored as quickly as possible to maintain the core functionalities of the ELIXIR Beacon Network v2. This includes the main data processing servers and core network infrastructure.</p>
+</li>
+<li>
+<p>RTO: 4 hours.</p>
+</li>
+<li>
+<p>Reasoning: Any extended downtime of these services would severely impact the operations and availability of the network, affecting users' access to critical data.</p>
+</li>
+<li>
+<p>Essential Services: These services support important, but not mission-critical, functions. This includes auxiliary servers and secondary databases (in case of load-balance), and important but non-critical applications such as the different log in applications (if any).</p>
+</li>
+<li>
+<p>RTO: 12 hours.</p>
+</li>
+<li>
+<p>Reasoning: While important, these services can tolerate a slightly longer downtime without significantly disrupting operations.</p>
+</li>
+<li>
+<p>Non-essential Services: These are the services that, while useful, are not critical to the immediate functioning of the network. They include internal services such as the logging system.</p>
+</li>
+<li>
+<p>RTO: 48 hours.</p>
+</li>
+<li>
+<p>Reasoning: These services have the least impact on the immediate operations and can be restored last without causing major disruption.</p>
+</li>
+</ol>
+<h2 id="recovery-point-objectives-rpo">Recovery Point Objectives (RPO)<a class="headerlink" href="#recovery-point-objectives-rpo" title="Permanent link">&para;</a></h2>
+<p>Recovery Point Objectives (RPO) define the maximum acceptable amount of data loss measured in time. It specifies how current the restored data should be after a disaster. As the only data the EBN stores is the one at the logging system and the metadata of each beacon there are no Critical Data losses.</p>
+<ol>
+<li>
+<p>Essential Data: It includes periodic logs and user data.</p>
+</li>
+<li>
+<p>RPO: Up to 1 hour of data loss.</p>
+</li>
+<li>
+<p>Reasoning: Logs must be current to prevent data inconsistencies. Also, information about the users making the queries or accessing the EBN.</p>
+</li>
+<li>
+<p>Non-Essential Data: Archived logs and metadata of the beacons in the network.</p>
+</li>
+<li>
+<p>RPO: Up to 24 hours of data loss.</p>
+</li>
+<li>
+<p>Reasoning: Non-essential data that doesn't change much, such as the metadata of the beacons in the network. Daily backups are enough.</p>
+</li>
+</ol>
+<p>By defining clear RTO and RPO for each type of service and data, the ELIXIR Beacon Network v2 ensures a structured and prioritized approach to disaster recovery. This enables efficient resource allocation and focused recovery efforts, minimizing downtime and data loss while ensuring critical functions are restored quickly.</p>
+<h1 id="recovery-strategies">Recovery Strategies<a class="headerlink" href="#recovery-strategies" title="Permanent link">&para;</a></h1>
+<p>Recovery strategies outline the approaches and methods that will be employed to restore the ELIXIR Beacon Network v2 to full operational status after a disaster. These strategies are designed to address various types of disruptions and ensure that recovery objectives are met efficiently. The key areas covered include data recovery, system restoration, and infrastructure rebuilding.</p>
+<h2 id="data-recovery">Data Recovery<a class="headerlink" href="#data-recovery" title="Permanent link">&para;</a></h2>
+<p>Data recovery strategies focus on ensuring that data can be restored to meet the Recovery Point Objectives (RPO) defined for different data categories. These strategies involve regular backups, real-time replication, and secure storage solutions.</p>
+<ol>
+<li>
+<p>Regular Backups: Backups of all critical, essential and non-essential data, specially the logging system, in the load-balance approach or in the system of the EBN.</p>
+</li>
+<li>
+<p>Frequency: Backup of new data every hour. For non-essential data make daily backups.</p>
+</li>
+<li>
+<p>Storage Location: Multiple locations (in case of Load-Balance approach), on server or in a cloud-based storage. </p>
+</li>
+<li>
+<p>Cloud Storage Solutions: If you are using cloud storage solutions, they can store backup copies of critical and essential data. Moreover, the cloud storage offers high availability, easy scalability, and additional security features, ensuring data remains accessible and secure.</p>
+</li>
+</ol>
+<h2 id="system-restoration">System Restoration<a class="headerlink" href="#system-restoration" title="Permanent link">&para;</a></h2>
+<p>System restoration strategies focus on quickly restoring hardware, software, and network infrastructure to operational status. These strategies ensure that critical systems are prioritized and restored to meet the Recovery Time Objectives (RTO).</p>
+<ol>
+<li>
+<p>Redundant Systems and Load Balancers: It is recommended to use redundant systems and Load-Balance approaches to distribute the load and provide failover capabilities.</p>
+</li>
+<li>
+<p>Updated System Images: Maintain updated container images of the system for rapid deployment. Regularly update and test with CI/CD the images to ensure they include the latest patches, configuration and pass all the tests.</p>
+</li>
+</ol>
+<h2 id="infrastructure-rebuilding">Infrastructure Rebuilding<a class="headerlink" href="#infrastructure-rebuilding" title="Permanent link">&para;</a></h2>
+<p>Infrastructure rebuilding strategies focus on restoring the physical and virtual infrastructure needed to support the ELIXIR Beacon Network v2. These strategies ensure that all necessary components are available and can be quickly deployed to restore services.</p>
+<ol>
+<li>
+<p>Virtualised Environments: It is recommended the usage of virtualised environments for flexibility and quick recovery. They allow easy replication and migration across different physical hosts.</p>
+</li>
+<li>
+<p>Documentation of hardware: Specify and document the minimum memory and hardware the machines need to run the EBN. </p>
+</li>
+</ol>
+<h1 id="incident-response-plan">Incident Response Plan<a class="headerlink" href="#incident-response-plan" title="Permanent link">&para;</a></h1>
+<p>The Incident Response Plan outlines the procedures for detecting, responding to, and mitigating incidents that could disrupt the ELIXIR Beacon Network v2. This plan ensures a quick and effective response to minimize impact, protect data, and restore normal operations as quickly as possible.</p>
+<h2 id="incident-detection">Incident Detection<a class="headerlink" href="#incident-detection" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Monitoring Tools: Use monitoring tools to detect anomalies in the network and generate alerts. The monitoring can be of network services, intrusion detection and application performance.</p>
+</li>
+<li>
+<p>Incident Response Team: Establish an incident response team available for any issue that can be encountered.</p>
+</li>
+<li>
+<p>Automated Alerts: Set up alerts to notify the incident to the response team of potential issues.</p>
+</li>
+</ol>
+<h2 id="incident-response">Incident Response<a class="headerlink" href="#incident-response" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Initial Assessment: Use predefined criteria to categorise the incident (Critical, high, medium or low) based on the impact of the operations. Prioritise the response based on the severity of the incident.</p>
+</li>
+<li>
+<p>Containment: Contain the incident to prevent further damage. It can be done by: Isolating any affected system, blocking malicious IP addresses or disconnecting compromised Beacon from the network.</p>
+</li>
+<li>
+<p>Notification: Notify the disaster recovery team about the incident and the users with any problem that might affect them.</p>
+</li>
+</ol>
+<h2 id="incident-mitigation">Incident Mitigation<a class="headerlink" href="#incident-mitigation" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Eradication: Remove the cause of the incident from the affected systems, ensuring the incident will not recur from the same cause.</p>
+</li>
+<li>
+<p>Recovery: Restore affected systems and services to normal operation.</p>
+</li>
+<li>
+<p>Documentation: Document the actions taken during the incident response. It will be used as a lessons learned for future improvements.</p>
+</li>
+</ol>
+<h2 id="review">Review<a class="headerlink" href="#review" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Post-Incident Analysis: Review the incident and the response actions taken. Useful to consider what needs to be improved in future versions of the tool.</li>
+</ol>
+<h1 id="roles-and-responsibilities">Roles and Responsibilities<a class="headerlink" href="#roles-and-responsibilities" title="Permanent link">&para;</a></h1>
+<p>The effectiveness of the Disaster Recovery Plan (DRP) for the ELIXIR Beacon Network v2 relies on clearly defined roles and responsibilities. This section outlines the specific duties of the disaster recovery team and other key personnel involved in the disaster recovery process. Ensuring that each team member understands their responsibilities is crucial for a coordinated and efficient response to any disruptive event. As this project does not need a large number of people working on it, one person can have more than one role.</p>
+<p>The roles and their responsibilities are the following:</p>
+<ul>
+<li>
+<p>Disaster Recovery Coordinator: Oversees the DRP execution, evaluates the effectiveness of the recovery, and communicates with the Operations Team and the users.</p>
+</li>
+<li>
+<p>IT Manager: Manage the technical efforts and infrastructure restoration with the issues of hardware, software and network components. Also, ensure all the systems are functioning correctly and maintain the recovery procedures and updates.</p>
+</li>
+<li>
+<p>Back and Recovery Specialist: Ensure data is backed up according to the schedule and verify backup integrity for the restoration process.</p>
+</li>
+</ul>
+<h2 id="communication-plan">Communication Plan<a class="headerlink" href="#communication-plan" title="Permanent link">&para;</a></h2>
+<p>Effective communication is critical during a disaster recovery process to ensure that all users and beacon maintainers are informed and coordinated.</p>
+<p>The objectives are the following:</p>
+<ul>
+<li>
+<p>Ensure clear, accurate, and timely communication with all people involved in EBN</p>
+</li>
+<li>
+<p>Provide regular updates on the status of the disaster recovery efforts to the users.</p>
+</li>
+<li>
+<p>Facilitate efficient coordination within the disaster recovery team.</p>
+</li>
+</ul>
+<h2 id="internal-communication-channels">Internal Communication Channels<a class="headerlink" href="#internal-communication-channels" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Email: Primary channel for detailed updates and instructions.</p>
+</li>
+<li>
+<p>Instant messaging: It is recommended to use Slack (if all the member of the DRP have access to the same channel) or the Gitter channel of the ELIXIR Beacon Network.</p>
+</li>
+<li>
+<p>Zoom Meetings: For discussions and direct communication.</p>
+</li>
+</ul>
+<h2 id="external-communication-channels">External Communication Channels<a class="headerlink" href="#external-communication-channels" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Email: Use the EBN email list to notify the users and partners about the recovery status and updates.</p>
+</li>
+<li>
+<p>Website: A warning box can be posted in the ELIXIR Beacon Network Frontend.</p>
+</li>
+</ul>
+<h2 id="communication-protocols">Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Incident Notification: When a incident or disaster is detected it must be informed to the Disaster Recovery team via mail or instant message.</p>
+</li>
+<li>
+<p>Initial Assessment and Response: The completion of the initial assessment with the report of the nature of the incident, with affected systems and immediate response actions, must be made by mail. The mail can be extensive for the members of the DR team, and a summary for the users is enough.</p>
+</li>
+<li>
+<p>Regular Updates: The status of the recovery to the other members of the DR team is must be send via mail or instant message at least every 4 hours. If the situation is critical, an online meeting for further discussion is recommended.</p>
+</li>
+<li>
+<p>Incident Resolution: A mail with the successful recovery and restoration of services must be sent to everyone (User and partners).</p>
+</li>
+<li>
+<p>Post-Incident Review: A meeting is recommended to discuss how to improve the service in future versions.</p>
+</li>
+</ol>
+<p>The Disaster Recovery (DR) coordinator is the person in charge of informing the users. Whereas for the resolution of the incident it is important that the person in charge of sending the email is the IT Manager, as it can give better technical details.</p>
+<h1 id="backup-restoration-procedures">Backup Restoration Procedures<a class="headerlink" href="#backup-restoration-procedures" title="Permanent link">&para;</a></h1>
+<p>These procedures ensure that data is quickly restored in the event of a disaster:</p>
+<ul>
+<li>
+<p>Initiate Restoration: Activation of the disaster recovery plan due to data loss or corruption.</p>
+</li>
+<li>
+<p>Assess Damage: IT Manager retrieves the most recent data loss and identifies the most recent backup.</p>
+</li>
+<li>
+<p>Select Backup: Backup and Recovery Specialist selects the appropriate backup set based on the data loss assessment and recovery point objectives (RPO).</p>
+</li>
+<li>
+<p>Data verification: Verify data integration and functionality.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Copyright 2024, ELIXIR Beacon Developers
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/genomebeacons" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ga4gh-beacon" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "search.highlight", "search.share", "navigation.expand", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

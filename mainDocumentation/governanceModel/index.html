@@ -1,0 +1,931 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website for the ELIXIR Beacon v2 Network Project">
+      
+      
+        <meta name="author" content="Sergi Aguiló Castillo, Michael Baudis & Beacon Network Developers">
+      
+      
+      
+      
+        <link rel="next" href="../expectedOperations/">
+      
+      
+      <link rel="icon" href="../../img/elixir-white-48x36.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Governance - ELIXIR Beacon Network</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>');--md-admonition-icon--security:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/theme_overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ELIXIR Beacon Network" class="md-header__button md-logo" aria-label="ELIXIR Beacon Network" data-md-component="logo">
+      
+  <img src="../../img/elixir-white-48x36.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ELIXIR Beacon Network
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Governance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ga4gh-beacon/beacon-network" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    beacon-network
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ELIXIR Beacon Network" class="md-nav__button md-logo" aria-label="ELIXIR Beacon Network" data-md-component="logo">
+      
+  <img src="../../img/elixir-white-48x36.svg" alt="logo">
+
+    </a>
+    ELIXIR Beacon Network
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ga4gh-beacon/beacon-network" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    beacon-network
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Governance
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Governance
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anonymous Users
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registered-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registered Users
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beacon-maintainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beacon Maintainer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elixir-beacon-network-maintainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELIXIR Beacon Network Maintainer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steering-committeebeacon-maintainer-at-least-one-member-from-the-contributing-communities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steering CommitteeBeacon Maintainer at least one member from the contributing communities.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operations-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operations Team
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disaster-recovery-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disaster Recovery team
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training-and-outreach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training and outreach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sc-chair" class="md-nav__link">
+    <span class="md-ellipsis">
+      SC Chair
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expectedOperations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disasterRecovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disaster Recovery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation and Administration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Installation and Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/beacon-aggregator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beacon Aggregator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/light-beacon-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Light a Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/add-beacon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a Beacon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/beacon-registry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beacon Registry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adminGuide/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="governance-model">Governance Model<a class="headerlink" href="#governance-model" title="Permanent link">&para;</a></h1>
+<h1 id="1-vision-statement">1. Vision statement<a class="headerlink" href="#1-vision-statement" title="Permanent link">&para;</a></h1>
+<p>The ELIXIR Beacon Network (EBN) aims to act as a resource to facilitate biomedical data discoverability across multiple sites and data types, given stable and community-driven specifications governing the interactions of the different associated resources. The Global Alliance for Genomics and Health (GA4GH) and ELIXIR constitute the two main EBN reference organisations for community-driven standards and their implementation into software products that can be uptaken by the whole Life Sciences community.</p>
+<h1 id="2-overview-and-scope">2. Overview and scope.<a class="headerlink" href="#2-overview-and-scope" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The ELIXIR Beacon Network (EBN) is a service to support a collaborative initiative to advance data discoverability across the biomedical community. Developed under ELIXIR, the network creates an interconnected ecosystem of beacons, fostering responsible sharing of genomic, phenotypic and other data types.</p>
+<p>The main objectives of the ELIXIR Beacon Network are:</p>
+<ul>
+<li>
+<p>Facilitating data accessibility: Promoting easy discoverability, use, and access to diverse biomedical data types for researchers and other interested stakeholders.</p>
+</li>
+<li>
+<p>Interoperability: Ensuring compatibility among different data sources by adopting  standardised Beacon protocol and data models.</p>
+</li>
+<li>
+<p>Knowledge exchange: Bringing different data providers together serves to identify commonalities and differences across sites, facilitating expert knowledge exchange and the promotion and adoption of standardised protocols across the community.</p>
+</li>
+</ul>
+<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
+<p>The governance structure is designed to facilitate transparent decision-making, both strategic and operational, and community involvement. The key parts are:</p>
+<ul>
+<li>
+<p>Roles, Bodies and Responsibilities in the EBN</p>
+</li>
+<li>
+<p>Governance rules for the different Roles and Bodies</p>
+</li>
+<li>
+<p>Appendixes that describe details on particular aspects.</p>
+</li>
+</ul>
+<p>The considerations for expected operations, such as relevant and contextual considerations for the governance in the different operations inside the EBN and what makes a Beacon operational in the network are in the <a href="/docs/mainDocumentation/expectedOperations">Expected Operations document</a>.</p>
+<h1 id="3-roles-bodies-and-responsibilities">3. Roles, Bodies and Responsibilities<a class="headerlink" href="#3-roles-bodies-and-responsibilities" title="Permanent link">&para;</a></h1>
+<p>This section lists roles, bodies and responsibilities in the ELIXIR Beacon Network:</p>
+<h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h2>
+<p>User is anyone querying EBN. As an example, a user can be a researcher searching for individuals with a certain disease across multiple beacons. Users could be anonymous or registered.</p>
+<h3 id="anonymous-users">Anonymous Users<a class="headerlink" href="#anonymous-users" title="Permanent link">&para;</a></h3>
+<p>Anonymous users refer to individuals who are not registered or do not pass any authentication in the ELIXIR Beacon Network. Such users are limited to accessing only the public beacons, with access restricted to the default level of granularity of each beacon.</p>
+<h3 id="registered-users">Registered Users<a class="headerlink" href="#registered-users" title="Permanent link">&para;</a></h3>
+<p>Registered users are those who have logged into EBN. Whenever these users initiate a query, EBN will transmit their identity to the beacons within the network.</p>
+<h2 id="beacon-maintainer">Beacon Maintainer<a class="headerlink" href="#beacon-maintainer" title="Permanent link">&para;</a></h2>
+<p>Beacon maintainers are the people in charge of the beacons that have been included in the network, or want to be in the network. They are responsible for overseeing the operations and functionalities of their respective beacons.</p>
+<p>They are the primary point of contact with the EBN Maintainer, facilitating the addition or update of their beacons within the network. Additionally, they are tasked with notifying the EBN Maintainer of any errors in their beacon that could impact the network's performance.</p>
+<p>Before asking permission to enter the ELIXIR Beacon Network, they must pass their beacon to the <a href="https://github.com/elixir-europe/neat-beacon-v2-validator">validator</a> to ensure their beacon is complying with the specification.</p>
+<h2 id="elixir-beacon-network-maintainer">ELIXIR Beacon Network Maintainer<a class="headerlink" href="#elixir-beacon-network-maintainer" title="Permanent link">&para;</a></h2>
+<p>Responsible for the operations of the ELIXIR Beacon Network instance or instances. They control the actual addition or updating of beacons within the network. Also, they serve as the primary operational point of contact for beacon owners and are responsible for notifying them of any issues, such as beacon downtime or errors.</p>
+<p>Additionally, these individuals are tasked with ensuring the continuous operation of the ELIXIR Beacon Network and keeping it up to date, according to the service level agreement (SLA). </p>
+<p>This role could be split into several individuals or subroles, e.g.: customer support and EBN System Administration.</p>
+<p>The EBN Maintainer is selected by the Steering Committee. It must be a person with access to the system where the EBN backend is located.</p>
+<h2 id="contributors">Contributors<a class="headerlink" href="#contributors" title="Permanent link">&para;</a></h2>
+<p>Contributors are community members who help maintain and develop the ELIXIR Beacon Network. Any person can contribute. Participation is open to anyone, with no expectation of long-term commitment, specific skill requirements, or selection process.</p>
+<p>Contributions can take multiple forms such as reporting bugs, writing documentation, contributing code (e.g. new model schemas). Any form of contribution is welcome, and it will be recognized.</p>
+<h2 id="steering-committeebeacon-maintainer-at-least-one-member-from-the-contributing-communities">Steering CommitteeBeacon Maintainer at least one member from the contributing communities.<a class="headerlink" href="#steering-committeebeacon-maintainer-at-least-one-member-from-the-contributing-communities" title="Permanent link">&para;</a></h2>
+<p>The members are typically nominated and elected by the existing committee (Derived from the Service Founding Committee at M1.1) or through a vote by the contributing community members. The selection criteria prioritise diversity in expertise and community representation, with a balance between technical and project perspectives.</p>
+<p>The Steering Committee holds regular mandatory meetings, typically on a quarterly basis, to discuss the progress, challenges, and strategic direction of the EBN. Additional meetings can be convened as needed. Agendas for these meetings are set in advance and typically include:</p>
+<ol>
+<li>
+<p>Review of Project Goals and Progress: Assessing current milestones and setting future objectives.</p>
+</li>
+<li>
+<p>Technical Developments: Evaluating new technical proposals, updates, and innovations.</p>
+</li>
+<li>
+<p>Governance and Administrative Matters: Addressing any issues related to governance, member roles, and administrative duties.</p>
+</li>
+<li>
+<p>Policy Development and Updates: Discussing and approving new policies or modifications to existing ones.</p>
+</li>
+</ol>
+<h2 id="operations-team">Operations Team<a class="headerlink" href="#operations-team" title="Permanent link">&para;</a></h2>
+<p>Specialists responsible for the technical infrastructure and development of the network. Their primary focus is on developing the network, implementing extensions and ensuring interoperability to enhance its functionality and efficiency.</p>
+<p>This committee is composed by contributors of the ELIXIR Beacon Network. It is also encouraged that the members of contributing communities help the development together with the Steering Committee.</p>
+<h2 id="disaster-recovery-team">Disaster Recovery team<a class="headerlink" href="#disaster-recovery-team" title="Permanent link">&para;</a></h2>
+<p>People in charge on recovering the ELIXIR Beacon Network in case of a disruptive event that impact the network functionalities. It must be composed by technical people and the EBN maintainer maintainer.</p>
+<h2 id="training-and-outreach">Training and outreach<a class="headerlink" href="#training-and-outreach" title="Permanent link">&para;</a></h2>
+<p>Anyone related to the EBN can do training or participate in outreach activities. Before doing so, they must send a mail to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#110;&#45;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#105;&#120;&#105;&#114;&#45;&#101;&#117;&#114;&#111;&#112;&#101;&#46;&#111;&#114;&#103;">&#98;&#110;&#45;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#105;&#120;&#105;&#114;&#45;&#101;&#117;&#114;&#111;&#112;&#101;&#46;&#111;&#114;&#103;</a> to inform them of the activity, and get any possible help from the community or any other valuable assistance.</p>
+<h2 id="sc-chair">SC Chair<a class="headerlink" href="#sc-chair" title="Permanent link">&para;</a></h2>
+<p>The SC Chair is a single individual, a member of the Steering Committee, and elected for a 2-year non-renewable term by the SC, with the expectation that this role should rotate between its members. The Chair has no additional authority over other members of the Steering Committee: the role is one of coordinator. The Chair is also expected to ensure that all governance processes are adhered to, and has the casting vote when the project fails to reach consensus.</p>
+<h1 id="5-communication-channels">5. Communication channels<a class="headerlink" href="#5-communication-channels" title="Permanent link">&para;</a></h1>
+<p>The official communication channels for user support and project discussions in general are:</p>
+<ul>
+<li>
+<p>The official contact email, <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#110;&#45;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#105;&#120;&#105;&#114;&#45;&#101;&#117;&#114;&#111;&#112;&#101;&#46;&#111;&#114;&#103;">&#98;&#110;&#45;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#105;&#120;&#105;&#114;&#45;&#101;&#117;&#114;&#111;&#112;&#101;&#46;&#111;&#114;&#103;</a> , which goes to all members of the project.</p>
+</li>
+<li>
+<p>The Gitter messaging system channel for the ecosystem.</p>
+</li>
+<li>
+<p>Via issues in any of the <a href="https://github.com/ga4gh-beacon/beacon-network">Beacon Network repositories</a>.</p>
+</li>
+</ul>
+<h1 id="6-support">6. Support<a class="headerlink" href="#6-support" title="Permanent link">&para;</a></h1>
+<p>All participants in the community are encouraged to provide support for new users and contributors. This support is part of the ELIXIR Beacon Network, and is provided as a way to encourage reuse and contributions to the service. Support is provided on the communication channels listed in the previous section.</p>
+<p>The types of support given can be the following:</p>
+<ul>
+<li>
+<p>Frequently Asked Questions (FAQs): Used for common queries about beacon registration, data submission and more. You can use the mail, the Gitter messaging system or the documentation for these questions.</p>
+</li>
+<li>
+<p>Documentation: Detailed documentation for in-depth information on how to create an instance of a EBN.</p>
+</li>
+<li>
+<p>Contact support: For any specific queries or required personalised assistance, you can send a mail to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#110;&#45;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#105;&#120;&#105;&#114;&#45;&#101;&#117;&#114;&#111;&#112;&#101;&#46;&#111;&#114;&#103;">&#98;&#110;&#45;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#105;&#120;&#105;&#114;&#45;&#101;&#117;&#114;&#111;&#112;&#101;&#46;&#111;&#114;&#103;</a>.</p>
+</li>
+<li>
+<p>Training programs: Participating in different training programs to enhance your basic understanding of beacon operations and best practices.</p>
+</li>
+<li>
+<p>Feedback submission: You can support with your thoughts, suggestions and bug reports to help continuously improve the EBN.</p>
+</li>
+</ul>
+<h1 id="7-contribution-process-and-credit">7. Contribution Process and credit<a class="headerlink" href="#7-contribution-process-and-credit" title="Permanent link">&para;</a></h1>
+<p>Anyone can contribute to the project, regardless of their skills, as there are many ways to contribute. The Gitter channel is the most appropriate place for a contributor to ask for help when making their first contribution.</p>
+<p>Contributions can take multiple forms, such as:</p>
+<ul>
+<li>
+<p>Issues in the GitHub repositories (<a href="https://github.com/elixir-europe/beacon-network-backend">Backend</a> and <a href="https://github.com/elixir-europe/beacon-network-ui">FrontEnd</a>).</p>
+</li>
+<li>
+<p>Providing or improving code that adds or improves the product or more generally, maintains the infrastructure.</p>
+</li>
+<li>
+<p>Contributing to the documentation of the project.</p>
+</li>
+</ul>
+<p>The various ways of contributing are described in more detail in the <a href="https://docs.google.com/document/d/1_NjSqGtoAVlgpWOLvcOCYdDJMsBY8lCrcqk4Fu43wmM/edit?usp=sharing">Administration document</a>.</p>
+<h1 id="8-decision-making-process">8. Decision Making Process<a class="headerlink" href="#8-decision-making-process" title="Permanent link">&para;</a></h1>
+<p>A robust and transparent decision-making process is fundamental to the success of the ELIXIR Beacon Network. These are the parts of the governance:</p>
+<ul>
+<li>
+<p>Simple decisions: such as the updating of libraries and minimal changes in the project, will be subject to positive votes in any of GitHub's repositories.</p>
+</li>
+<li>
+<p>Steering Committee Authority: They hold the ultimate decision-making authority, guiding the strategic direction and policies of the ELIXIR Beacon Network. Their decisions are related to the network governance, policy changes and overall project goals.</p>
+</li>
+<li>
+<p>Community engagement: Decision-making involves active engagement with the community, including beacon operators, data providers and other stakeholders. Soliciting feedback from the community, working groups and diverse projects is key to ensuring diverse perspectives to improve the product.</p>
+</li>
+<li>
+<p>Decision criteria: Technical feasibility, ethical considerations, impact assessments and alignment with ELIXIR’s mission.</p>
+</li>
+<li>
+<p>Decision records: Comprehensive documentation of the decision to maintain transparency and accountability as a reference for future discussions.</p>
+</li>
+<li>
+<p>Timeliness and accountability: Ensure timely decision-making while avoiding unnecessary delays and addressing urgent matters promptly.</p>
+</li>
+<li>
+<p>Continuous improvement: Regular evaluation and refinement of the decision-making process. Iterative improvements based on feedback, changing project dynamics and community needs.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Copyright 2024, ELIXIR Beacon Developers
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/genomebeacons" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ga4gh-beacon" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "search.highlight", "search.share", "navigation.expand", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,85 @@
+:root {
+  --md-accent-fg-color: #023362;
+}
+
+.md-grid {
+  max-width: 1200px; 
+}
+
+.md-header {
+  background-color:  #023362;
+}
+
+nav.md-tabs {
+  background-color:  #023362;
+}
+
+.md-header__source {
+    background-image: url("/img/hCNV-Elixir-logo.svg");
+    background-repeat: no-repeat;
+    background-position: right; 
+}
+
+h1 {
+    margin-bottom:  0px;
+    padding-bottom:  0px;
+}
+
+h5 {
+    margin-bottom:  0px;
+    padding-bottom:  0px;
+}
+
+h2 {
+/*    
+    border-left: #023362 thin solid;
+    border-top:  #023362 thin solid;
+    border-bottom:  #023362 thin solid;
+*/
+}
+
+aside.blog-post-aside {
+/*    border-top:  #023362 thin solid;*/
+    margin-top:  0px;
+    padding-top:  12px;
+}
+
+div.contact_spacer {
+    display:  block;
+    height:  20px;
+}
+
+h3.title_news {
+    margin-top:  10px;
+    margin-bottom:  0px;
+}
+
+div.tabbed-set {
+    background-color:  #fafafa;
+}
+
+.tabbed-content {
+    padding:  5px;
+}
+
+li li {
+    list-style-type: circle;
+}
+
+li li li {
+    list-style-type: "–";
+    font-size: 0.9em;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+}
+
+/* Width manipulations etc. */
+
+/*.md-grid {
+  max-width: 920px; 
+}*/
+
+
